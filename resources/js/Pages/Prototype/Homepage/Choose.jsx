@@ -2,8 +2,8 @@ export default function Choose() {
     return (
         <div className="max-w-screen flex bg-white w-full mt-[146px]">
             <div className="container mx-auto flex w-full">
-                <div className="w-[35%] flex flex-col border-black border-t-[3px] border-b-[3px]  ">
-                    <div className="pl-[110px] w-full h-[300px] flex flex-col justify-center border-black border-b-[1.5px] pr-[60px]">
+                <div className="w-[35%] flex flex-col border-secondary border-t-[3px] border-b-[3px]  ">
+                    <div className="pl-[110px] w-full h-[300px] flex flex-col justify-center border-secondary border-b-[1.5px] pr-[60px]">
                         <h1 className="font-sans text-[20px] font-bold leading-normal text-right text-secondary">
                             Comprehensive Curriculum
                         </h1>
@@ -12,7 +12,7 @@ export default function Choose() {
                             aspects of game development
                         </p>
                     </div>
-                    <div className="pl-[110px] w-full h-[300px] flex flex-col justify-center border-black border-t-[1.5px] pr-[60px]">
+                    <div className="pl-[110px] w-full h-[300px] flex flex-col justify-center border-secondary border-t-[1.5px] pr-[60px]">
                         <h1 className="font-sans text-[20px] font-bold leading-normal text-right text-secondary">
                             Structured Roadmap
                         </h1>
@@ -23,8 +23,8 @@ export default function Choose() {
                         </p>
                     </div>
                 </div>
-                <div className="w-[30%] flex flex-col justify-center items-center border-black border-[3px]">
-                    <h1 className="font-sans text-[36px] font-bold leading-normal text-primary flex">
+                <div className="w-[30%] flex flex-col justify-center items-center border-secondary border-[3px]">
+                    <h1 className="font-sans text-[36px] font-bold leading-normal text-secondary flex">
                         Why <br />
                         Choose <br />
                         Our <br />
@@ -34,8 +34,8 @@ export default function Choose() {
                         </span>
                     </h1>
                 </div>
-                <div className="w-[35%] border-black border-t-[3px] border-b-[3px] ">
-                    <div className="pr-[110px] w-full h-[300px] flex flex-col justify-center border-black border-b-[1.5px] pl-[60px]">
+                <div className="w-[35%] border-secondary border-t-[3px] border-b-[3px] ">
+                    <div className="pr-[110px] w-full h-[300px] flex flex-col justify-center border-secondary border-b-[1.5px] pl-[60px]">
                         <h1 className="font-sans text-[20px] font-bold leading-normal text-left text-secondary">
                             Learning Community
                         </h1>
@@ -44,7 +44,7 @@ export default function Choose() {
                             students can interact, exchange ideas, etc.
                         </p>
                     </div>
-                    <div className="pr-[110px] w-full h-[300px] flex flex-col justify-center border-black border-t-[1.5px] pl-[60px]">
+                    <div className="pr-[110px] w-full h-[300px] flex flex-col justify-center border-secondary border-t-[1.5px] pl-[60px]">
                         <h1 className="font-sans text-[20px] font-bold leading-normal text-left text-secondary">
                             Most Updated Material
                         </h1>

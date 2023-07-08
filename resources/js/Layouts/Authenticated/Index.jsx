@@ -1,11 +1,13 @@
+import PrimaryButton from "@/Components/PrimaryButton";
 import { Link } from "@inertiajs/react";
+import Menulist from "./Menulist";
 
 export default function Authenticated() {
     return (
-        <nav className="stick max-w-screen border-b-2 border-black bg-white">
+        <nav className="stick max-w-screen border-b-2 border-secondary bg-white">
             <div className="container mx-auto flex h-[100px] items-center justify-between px-[110px]  ">
                 <div>
-                    <img src="/images/GameOnU.png" alt="logo" />
+                    <img src="/images/GameOnU-v2.png" alt="logo" />
                 </div>
                 <div className="items-center ">
                     <ul className="flex gap-[30px] font-text text-[16px] font-medium">
@@ -30,14 +32,16 @@ export default function Authenticated() {
                 </div>
 
                 <div>
-                    <Link
-                        href="#"
-                        className="flex gap-[10px] bg-primary px-[30px] py-[10px] font-bold text-white"
-                    >
-                        Login
-                        <span>
-                            <img src="/svg/call_made.svg" alt="" />
-                        </span>
+                    <Link href="#">
+                        <PrimaryButton
+                            type="button"
+                            className="flex gap-[10px] items-center"
+                        >
+                            Login
+                            <span>
+                                <img src="/svg/call_made.svg" alt="" />
+                            </span>
+                        </PrimaryButton>
                     </Link>
                 </div>
             </div>

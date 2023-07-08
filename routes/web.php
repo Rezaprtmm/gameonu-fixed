@@ -16,13 +16,19 @@ use Inertia\Inertia;
 |
 */
 
-Route::redirect("/", "/prototype/homepage/index");
+Route::redirect("/", "/prototype/homepage");
 
-Route::prefix('prototype')->group(function () {
-    route::get('/homepage', function () {
+Route::prefix('prototype')->name('prototype.')->group(function () {
+    Route::get('/homepage', function () {
         return Inertia::render('Prototype/Homepage/Index');
-    });
+    })->name('homepage');
+
+    Route::get('/courses', function () {
+        return Inertia::render('Prototype/Courses/Index');
+    })->name('courses.index');
 });
+
+
 
 
 

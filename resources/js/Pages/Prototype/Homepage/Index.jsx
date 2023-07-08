@@ -3,7 +3,8 @@ import React from "react";
 import Hero from "./Hero";
 import Popular from "./Popular";
 import Choose from "./Choose";
-import Work from "../Work";
+import Work from "./Work";
+import Footer from "../Footer/Index";
 
 export default function Homepage() {
     return (
@@ -13,6 +14,7 @@ export default function Homepage() {
             <Popular />
             <Choose />
             <Work />
+            <Footer />
         </div>
     );
 }
