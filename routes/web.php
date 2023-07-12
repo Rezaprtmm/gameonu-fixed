@@ -14,7 +14,7 @@ use Inertia\Inertia;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+*/ 
 
 Route::redirect("/", "/prototype/homepage");
 
@@ -25,7 +25,23 @@ Route::prefix('prototype')->name('prototype.')->group(function () {
 
     Route::get('/courses', function () {
         return Inertia::render('Prototype/Courses/Index');
-    })->name('courses.index');
+    })->name('courses');
+    
+    Route::get('/courseShow', function () {
+        return Inertia::render('Prototype/CourseShow/Show');
+    })->name('courseShow');
+
+    Route::get('/roadmap/newbie', function () {
+        return Inertia::render('Prototype/Roadmap/Newbie/Index');
+    })->name('roadmap.newbie');
+
+    Route::get('/roadmap/intermediate', function () {
+        return Inertia::render('Prototype/Roadmap/Intermediate/Index');
+    })->name('roadmap.intermediate');
+
+    Route::get('/roadmap/advanced', function () {
+        return Inertia::render('Prototype/Roadmap/Advanced/Index');
+    })->name('roadmap.advanced');
 });
 
 

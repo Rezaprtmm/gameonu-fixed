@@ -58,6 +58,7 @@ export default function Popular() {
                                     lessons={8}
                                     hours={3}
                                     level="Newbie"
+                                    thumbnail="/images/placeholder.webp"
                                     key={i}
                                 />
                             ))}

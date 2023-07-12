@@ -1,0 +1,5 @@
+@layer components {
+    .side-link.active {
+        @apply text-[#661ED6];
+    }
+}

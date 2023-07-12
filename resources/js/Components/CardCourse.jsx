@@ -1,15 +1,20 @@
+import { Link } from "@inertiajs/react";
 import React from "react";
 
-export default function CardCourse({ name, rating, lessons, hours, level }) {
+export default function CardCourse({
+    slug,
+    name,
+    rating,
+    lessons,
+    hours,
+    level,
+    thumbnail,
+}) {
     return (
-        <div className="w-[400px] border-[#e1d2f9] border-[1px] absolute group mr-[30px]">
+        <div className="w-[343px] border-[#e1d2f9] border-[1px] absolute group mr-[30px] flex items-center justify-center">
             <div className="w-full">
                 <div className="w-full">
-                    <img
-                        src="/images/placeholder.webp"
-                        alt=""
-                        className="w-full"
-                    />
+                    <img src={thumbnail} alt="" className="w-full" />
                 </div>
                 <div className="flex flex-row items-center justify-between px-[16px] mt-[16px]">
                     <h1 className="font-sans text-[20px] font-bold leading-normal text-secondary flex items-center">
@@ -41,6 +46,10 @@ export default function CardCourse({ name, rating, lessons, hours, level }) {
                         Level: {level}
                     </p>
                 </div>
+                <Link
+                    href={route("prototype.courseShow")}
+                    className="inset-0 absolute z-50"
+                ></Link>
             </div>
         </div>
     );

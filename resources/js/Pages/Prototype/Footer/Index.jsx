@@ -27,7 +27,6 @@ export default function Footer() {
                                 placeholder="mail"
                                 className="mt-[20px]"
                             />
-
                             <div className="mt-[54px] ">
                                 <SecondaryButton>Subscribe</SecondaryButton>
                             </div>
