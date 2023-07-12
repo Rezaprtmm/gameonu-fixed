@@ -38,7 +38,7 @@ export default function CardRight({
                 <div className="ml-[60px] mt-[30px] w-[200px] -mb-[30px]">
                     <Link
                         href={link}
-                        className="flex gap-[10px] bg-white border-secondary border-[3px] px-[30px] p-[10px] shadow-custom2"
+                        className="flex gap-[10px] bg-white border-secondary border-[3px] px-[30px] p-[10px] shadow-custom2 font-sans text-[16px] font-bold leading-normal"
                     >
                         Go To Course{" "}
                         <svg
