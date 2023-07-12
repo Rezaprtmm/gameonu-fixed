@@ -32,7 +32,7 @@ export default forwardRef(function TextInput(
             type={inputType}
             name={name}
             value={value}
-            className={`bg-transparent border-white border-b-[1px] border-t-0 border-x-0 text-[#ccc] font-text text-[16px] font-normal leading-normal pb-[16px] pl-0 pr-[20px] ${
+            className={`bg-transparent font-text text-[16px] font-normal leading-normal pb-[16px] pl-0 pr-[20px] ${
                 isError && "border-red-500 border-b-[2px]"
             } ${className}`}
             ref={input}

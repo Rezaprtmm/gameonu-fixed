@@ -55,9 +55,9 @@ export default function Popular() {
                                 <CardCourse
                                     name="C#"
                                     rating={4.6}
-                                    lessons={8}
-                                    hours={3}
+                                    price={499}
                                     level="Newbie"
+                                    thumbnail="/images/placeholder.webp"
                                     key={i}
                                 />
                             ))}

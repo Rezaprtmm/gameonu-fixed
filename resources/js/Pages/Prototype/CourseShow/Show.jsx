@@ -1,13 +1,13 @@
 import Authenticated from "@/Layouts/Authenticated/Index";
 import React from "react";
 import Footer from "../Footer/Index";
-import CoursePage from "./CoursePage";
+import ShowDetail from "./ShowDetail";
 
-export default function Courses() {
+export default function Show() {
     return (
         <div>
             <Authenticated />
-            <CoursePage />
+            <ShowDetail />
             <Footer />
         </div>
     );
