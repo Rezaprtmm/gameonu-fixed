@@ -31,8 +31,7 @@ export default function CoursePage() {
                                         name="C#"
                                         slug="csharp-course"
                                         rating={4.6}
-                                        lessons={8}
-                                        hours={3}
+                                        price={499}
                                         level="Newbie"
                                         thumbnail="/images/placeholder.webp"
                                     />

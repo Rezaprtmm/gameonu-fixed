@@ -5,8 +5,7 @@ export default function CardCourse({
     slug,
     name,
     rating,
-    lessons,
-    hours,
+    price,
     level,
     thumbnail,
 }) {
@@ -39,8 +38,8 @@ export default function CardCourse({
                     </p>
                 </div>
                 <div className="flex justify-between mt-[8px] pb-[27px] px-[16px]">
-                    <p className="font-text text-[16px] font-bold leading-normal text-[#737373]">
-                        {lessons} lessons • {hours} hours
+                    <p className="font-text text-[16px] font-bold leading-normal text-[#258540]">
+                        IDR {price}K
                     </p>
                     <p className="font-text text-[16px] font-bold leading-normal text-[#737373]">
                         Level: {level}

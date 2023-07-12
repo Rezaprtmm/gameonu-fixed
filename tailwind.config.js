@@ -24,6 +24,10 @@ export default {
                 custom1: ["10px 10px 0px 0px #EF2ED0;"],
                 custom2: ["5px 5px 0px 0px #EF2ED0;"],
             },
+            backgroundImage: {
+                login: "url('/images/bg-login.png')",
+                checkout: "url('/images/checkout.png')",
+            },
         },
     },
 

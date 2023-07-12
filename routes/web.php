@@ -42,6 +42,18 @@ Route::prefix('prototype')->name('prototype.')->group(function () {
     Route::get('/roadmap/advanced', function () {
         return Inertia::render('Prototype/Roadmap/Advanced/Index');
     })->name('roadmap.advanced');
+
+    Route::get('/login', function () {
+        return Inertia::render('Prototype/Login');
+    })->name('login');
+
+    Route::get('/register', function () {
+        return Inertia::render('Prototype/Register');
+    })->name('register');
+
+    Route::get('/checkout', function () {
+        return Inertia::render('Prototype/Checkout');
+    })->name('checkout');
 });
 
 
