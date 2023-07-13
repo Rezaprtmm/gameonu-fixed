@@ -28,30 +28,21 @@ export default function Topbar() {
                     </div>
                 </div>
                 <div className="w-full flex flex-row gap-[20px]">
-                    <div className="w-[160px] mt-[24px] border-secondary border-[2px] h-[40px] flex items-center justify-center">
                         <Link
-                            className="font-sans text-[16px] font-bold leading-normal text-secondary"
+                            className="font-sans text-[16px] font-bold leading-normal text-secondary w-[160px] mt-[24px] border-secondary border-[2px] h-[40px] flex items-center justify-center"
                             href={route("prototype.dashboard")}
                         >
                             Dashboard
                         </Link>
-                    </div>
-                    <div
-                        className="w-[160px] mt-[24px] border-secondary border-[2px] h-[40px] flex items-center justify-center"
-                        href={route("prototype.community")}
-                    >
-                        <Link className="font-sans text-[16px] font-bold leading-normal text-secondary">
+                        <Link href={route("prototype.community")} className="font-sans text-[16px] font-bold leading-normal text-secondary w-[160px] mt-[24px] border-secondary border-[2px] h-[40px] flex items-center justify-center">
                             Community
                         </Link>
-                    </div>
-                    <div className="w-[160px] mt-[24px] border-secondary border-[2px] h-[40px] flex items-center justify-center">
                         <Link
                             href={route("prototype.profile")}
-                            className="font-sans text-[16px] font-bold leading-normal text-secondary"
+                            className="font-sans text-[16px] font-bold leading-normal text-secondary w-[160px] mt-[24px] border-secondary border-[2px] h-[40px] flex items-center justify-center"
                         >
                             Profile
                         </Link>
-                    </div>
                 </div>
             </div>
         </div>
