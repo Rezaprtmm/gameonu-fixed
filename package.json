@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "private": true,
   "type": "module",
   "scripts": {
@@ -36,7 +35,6 @@
   },
   "author": "",
   "license": "ISC"
-=======
     "private": true,
     "type": "module",
     "scripts": {
@@ -65,5 +63,4 @@
         "typeface-hind": "^1.1.13",
         "typeface-montserrat": "^1.1.13"
     }
->>>>>>> 4d6b4652ae197844c695c11c3c507ac59e1d09c0
 }
