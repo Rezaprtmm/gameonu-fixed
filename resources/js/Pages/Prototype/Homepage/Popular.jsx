@@ -54,11 +54,13 @@ export default function Popular() {
                             {[1, 2, 3, 4].map((i) => (
                                 <CardCourse
                                     name="C#"
+                                    slug={"csharp"}
                                     rating={4.6}
                                     price={499}
                                     level="Newbie"
                                     thumbnail="/images/placeholder.webp"
                                     key={i}
+                                    className="absolute w-[343px]"
                                 />
                             ))}
                         </Flickity>

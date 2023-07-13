@@ -22,20 +22,16 @@ export default function CoursePage() {
                     <div className="px-[60px] ml-64 -mt-[475px] pt-[40px] border-secondary border-l-[3px]">
                         <div className="grid grid-cols-3">
                             {[1, 2, 3, 4, 5, 6, 7].map((i) => (
-                                <div
-                                    className=" h-24 rounded mb-[280px]"
+                                <CardCourse
                                     key={i}
-                                >
-                                    <CardCourse
-                                        key={i}
-                                        name="C#"
-                                        slug="csharp-course"
-                                        rating={4.6}
-                                        price={499}
-                                        level="Newbie"
-                                        thumbnail="/images/placeholder.webp"
-                                    />
-                                </div>
+                                    name="C#"
+                                    slug="csharp-course"
+                                    rating={4.6}
+                                    price={499}
+                                    level="Newbie"
+                                    thumbnail="/images/placeholder.webp"
+                                    className="mb-[30px] w-[343px] relative"
+                                />
                             ))}
                         </div>
                     </div>

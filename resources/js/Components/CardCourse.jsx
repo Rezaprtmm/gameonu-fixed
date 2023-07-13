@@ -8,9 +8,12 @@ export default function CardCourse({
     price,
     level,
     thumbnail,
+    className = "",
 }) {
     return (
-        <div className="w-[343px] border-[#e1d2f9] border-[1px] absolute group mr-[30px] flex items-center justify-center">
+        <div
+            className={`border-[#e1d2f9] border-[1px] group mr-[30px] flex items-center justify-center ${className}`}
+        >
             <div className="w-full">
                 <div className="w-full">
                     <img src={thumbnail} alt="" className="w-full" />

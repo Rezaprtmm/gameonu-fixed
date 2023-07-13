@@ -54,6 +54,19 @@ Route::prefix('prototype')->name('prototype.')->group(function () {
     Route::get('/checkout', function () {
         return Inertia::render('Prototype/Checkout');
     })->name('checkout');
+
+    Route::get('/dashboard', function () {
+        return Inertia::render('Prototype/Dashboard/DashboardPage/Index');
+    })->name('dashboard');
+
+    Route::get('/community', function () {
+        return Inertia::render('Prototype/Dashboard/Community/Index');
+    })->name('community');
+
+    Route::get('/profile', function () {
+        return Inertia::render('Prototype/Dashboard/Profile/Index');
+    })->name('profile');
+
 });
 
 

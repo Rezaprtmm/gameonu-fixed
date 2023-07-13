@@ -29,10 +29,14 @@ export default function Lessons({ title, time }) {
                         fill="#EF2ED0"
                     />
                 </svg>
-                <p>{title}</p>
+                <p className="font-text text-[16px] font-bold leading-normal text-secondary">
+                    {title}
+                </p>
             </div>
             <div>
-                <p>{time} Hours</p>
+                <p className="font-text text-[16px] font-bold leading-normal text-secondary">
+                    {time} Hours
+                </p>
             </div>
         </Link>
     );
