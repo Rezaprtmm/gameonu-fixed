@@ -2,7 +2,9 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import React from "react";
 import MenuProfile from "./MenuProfile";
 
-export default function DetailProfile() {
+export default function DetailProfile({ user }) {
+    let regDate = user.created_at.split("T");
+
     return (
         <div className="max-w-screen mt-[70px] border-secondary border-b-[3px]">
             <div className="container px-[100px] pb-[60px]">
@@ -50,7 +52,7 @@ export default function DetailProfile() {
                                             </svg>
                                         }
                                         title={"Full Name"}
-                                        description={"Adillah Fatih"}
+                                        description={user.name}
                                     />
                                     <MenuProfile
                                         icon={
@@ -68,7 +70,7 @@ export default function DetailProfile() {
                                             </svg>
                                         }
                                         title={"Email Address"}
-                                        description={"fatih@gmail.com"}
+                                        description={user.email}
                                     />
                                     <MenuProfile
                                         icon={
@@ -127,7 +129,7 @@ export default function DetailProfile() {
                                             </svg>
                                         }
                                         title={"Registration Date"}
-                                        description={"10 Juli 2023"}
+                                        description={regDate[0]}
                                     />
                                 </div>
                                 <div className="w-[40%]">

@@ -3,12 +3,12 @@ import Footer from "../../Footer/Index";
 import Topbar from "../Topbar";
 import DetailProfile from "./DetailProfile";
 
-export default function Profile() {
+export default function Profile({ auth }) {
     return (
         <div>
-            <Authenticated />
-            <Topbar />
-            <DetailProfile />
+            <Authenticated user={auth.user} />
+            <Topbar user={auth.user} />
+            <DetailProfile user={auth.user} />
             <Footer />
         </div>
     );
