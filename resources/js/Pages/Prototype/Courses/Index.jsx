@@ -3,10 +3,10 @@ import React from "react";
 import Footer from "../Footer/Index";
 import CoursePage from "./CoursePage";
 
-export default function Courses() {
+export default function Courses({ auth }) {
     return (
         <div>
-            <Authenticated />
+            <Authenticated user={auth.user} />
             <CoursePage />
             <Footer />
         </div>
