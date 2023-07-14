@@ -21,7 +21,6 @@ export default function Register() {
     const submit = (e) => {
         e.preventDefault();
 
-        // console.log(data);
         post(route("register"));
     };
 
@@ -107,7 +106,7 @@ export default function Register() {
                                         />
 
                                         <InputError
-                                            message={errors.email}
+                                            message={errors.uname}
                                             className="mt-2"
                                         />
                                     </div>

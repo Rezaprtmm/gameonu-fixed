@@ -52,39 +52,59 @@ export default function Login() {
                             <p className="font-text text-[16px] font-normal leading-normal">
                                 Please enter your details.
                             </p>
-                            <TextInput
-                                type="text"
-                                name="email"
-                                placeholder="Username or Email"
-                                className="mt-[8px] w-full border-black border-t-0 border-x-0 border-b-[1px] font-text text-[16px] font-normal leading-normal"
-                            />
+                            <form onSubmit={submit}>
+                                <div className="mt-4">
+                                    <TextInput
+                                        type="text"
+                                        name="email"
+                                        value={data.email}
+                                        placeholder="Username or Email"
+                                        className="mt-[8px] w-full border-black border-t-0 border-x-0 border-b-[1px] font-text text-[16px] font-normal leading-normal"
+                                        autoComplete="email"
+                                        isFocused={true}
+                                        onChange={(e) =>
+                                            setData("email", e.target.value)
+                                        }
+                                    />
+                                    <InputError
+                                        message={errors.email}
+                                        className="mt-2"
+                                    />
+                                </div>
+                                <div className="mt-4">
+                                    <TextInput
+                                        type="password"
+                                        name="password"
+                                        value={data.password}
+                                        placeholder="Password"
+                                        className="mt-[8px] w-full border-black border-t-0 border-x-0 border-b-[1px] font-text text-[16px] font-normal leading-normal"
+                                        autoComplete="current-password"
+                                        onChange={(e) =>
+                                            setData("password", e.target.value)
+                                        }
+                                    />
 
-                            <InputError
-                                message={errors.uname}
-                                className="mt-2"
-                            />
-                            <TextInput
-                                type="password"
-                                name="password"
-                                placeholder="Password"
-                                className="mt-[8px] w-full border-black border-t-0 border-x-0 border-b-[1px] font-text text-[16px] font-normal leading-normal"
-                            />
+                                    <InputError
+                                        message={errors.password}
+                                        className="mt-2"
+                                    />
+                                </div>
+                                <div className="mt-[8px]">
+                                    <Link className="font-text text-[16px] font-bold leading-normal text-secondary">
+                                        Forgot Password?
+                                    </Link>
+                                </div>
 
-                            <InputError
-                                message={errors.password}
-                                className="mt-2"
-                            />
-                            <div className="mt-[8px]">
-                                <Link className="font-text text-[16px] font-bold leading-normal text-secondary">
-                                    Forgot Password?
-                                </Link>
-                            </div>
-
-                            <div className="mt-[24px]">
-                                <PrimaryButton className="w-full">
-                                    Login
-                                </PrimaryButton>
-                            </div>
+                                <div className="mt-[24px]">
+                                    <PrimaryButton
+                                        type="submit"
+                                        className="w-full"
+                                        disabled={processing}
+                                    >
+                                        Login
+                                    </PrimaryButton>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <div className="w-[65%] bg-login h-screen flex items-center justify-center">
