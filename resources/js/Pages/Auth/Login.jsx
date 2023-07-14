@@ -40,7 +40,10 @@ export default function Login() {
                             <p className="font-text text-[16px] font-normal leading-normal">
                                 New to GameOnU?
                             </p>
-                            <Link className="font-text text-[16px] font-normal leading-normal text-secondary">
+                            <Link
+                                href={route("register")}
+                                className="font-text text-[16px] font-normal leading-normal text-secondary"
+                            >
                                 Sign Up for free.
                             </Link>
                         </div>

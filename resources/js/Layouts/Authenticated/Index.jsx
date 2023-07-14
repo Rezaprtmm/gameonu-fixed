@@ -30,7 +30,7 @@ export default function Authenticated() {
                 </div>
 
                 <div className="login">
-                    <Link href="#">
+                    <Link href={route("login")}>
                         <PrimaryButton
                             type="button"
                             className="flex gap-[10px] items-center"

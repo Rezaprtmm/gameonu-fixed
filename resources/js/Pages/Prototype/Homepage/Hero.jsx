@@ -1,5 +1,4 @@
 import PrimaryButton from "@/Components/PrimaryButton";
-import Authenticated from "@/Layouts/Authenticated/Index";
 import { Link } from "@inertiajs/react";
 import React from "react";
 

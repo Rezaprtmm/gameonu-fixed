@@ -21,6 +21,7 @@ export default function Register() {
     const submit = (e) => {
         e.preventDefault();
 
+        // console.log(data);
         post(route("register"));
     };
 
@@ -78,7 +79,7 @@ export default function Register() {
                                             className="mt-[8px] w-full border-black border-t-0 border-x-0 border-b-[1px] font-text text-[16px] font-normal leading-normal"
                                             id="email"
                                             value={data.email}
-                                            autoComplete="username"
+                                            autoComplete="email"
                                             onChange={(e) =>
                                                 setData("email", e.target.value)
                                             }
@@ -93,11 +94,11 @@ export default function Register() {
                                     <div className="mt-4">
                                         <TextInput
                                             type="text"
-                                            name="username"
+                                            name="uname"
                                             placeholder="Username"
                                             className="mt-[8px] w-full border-black border-t-0 border-x-0 border-b-[1px] font-text text-[16px] font-normal leading-normal"
                                             value={data.uname}
-                                            autoComplete="username"
+                                            autoComplete="uname"
                                             isFocused={true}
                                             onChange={(e) =>
                                                 setData("uname", e.target.value)
@@ -134,6 +135,32 @@ export default function Register() {
                                         />
                                     </div>
 
+                                    <div className="mt-4">
+                                        <TextInput
+                                            id="password_confirmation"
+                                            type="password"
+                                            name="password_confirmation"
+                                            placeholder="Password Confirmation"
+                                            value={data.password_confirmation}
+                                            className="mt-[8px] w-full border-black border-t-0 border-x-0 border-b-[1px] font-text text-[16px] font-normal leading-normal"
+                                            autoComplete="new-password"
+                                            onChange={(e) =>
+                                                setData(
+                                                    "password_confirmation",
+                                                    e.target.value
+                                                )
+                                            }
+                                            required
+                                        />
+
+                                        <InputError
+                                            message={
+                                                errors.password_confirmation
+                                            }
+                                            className="mt-2"
+                                        />
+                                    </div>
+
                                     <div className="mt-[16px]">
                                         <PrimaryButton
                                             type="submit"
@@ -146,7 +173,10 @@ export default function Register() {
                                             <p className="font-text text-[16px] font-normal leading-normal">
                                                 Already have an account?
                                             </p>
-                                            <Link className="font-text text-[16px] font-normal leading-normal text-secondary">
+                                            <Link
+                                                href={route("login")}
+                                                className="font-text text-[16px] font-normal leading-normal text-secondary"
+                                            >
                                                 Sign In
                                             </Link>
                                         </div>
