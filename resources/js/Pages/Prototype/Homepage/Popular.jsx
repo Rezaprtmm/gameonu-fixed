@@ -39,7 +39,7 @@ export default function Popular() {
                             courses.
                         </p>
                         <div className="mt-[36px]">
-                            <Link href="#">
+                            <Link href={route("prototype.courses")}>
                                 <PrimaryButton type="button">
                                     Choose Course
                                 </PrimaryButton>

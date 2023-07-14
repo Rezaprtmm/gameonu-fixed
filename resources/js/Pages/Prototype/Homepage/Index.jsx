@@ -6,10 +6,10 @@ import Choose from "./Choose";
 import Work from "./Work";
 import Footer from "../Footer/Index";
 
-export default function Homepage() {
+export default function Homepage({ auth }) {
     return (
         <div>
-            <Authenticated />
+            <Authenticated user={auth.user} />
             <Hero />
             <Popular />
             <Choose />

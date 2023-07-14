@@ -15,15 +15,17 @@ export default function Topbar({ user }) {
                             to become a great Game Developer!
                         </p>
                         <div className="mt-[24px]">
-                            <PrimaryButton
-                                type="button"
-                                className="flex gap-[10px] items-center"
-                            >
-                                Back to Home{" "}
-                                <span>
-                                    <img src="/svg/call_made.svg" alt="" />
-                                </span>
-                            </PrimaryButton>
+                            <Link href={route("prototype.homepage")}>
+                                <PrimaryButton
+                                    type="button"
+                                    className="flex gap-[10px] items-center"
+                                >
+                                    Back to Home{" "}
+                                    <span>
+                                        <img src="/svg/call_made.svg" alt="" />
+                                    </span>
+                                </PrimaryButton>
+                            </Link>
                         </div>
                     </div>
                 </div>

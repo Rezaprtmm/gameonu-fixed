@@ -12,7 +12,7 @@ export const List = [
     {
         link: "prototype.courses",
         icon: null,
-        text: "Comunity",
+        text: "Community",
     },
     {
         link: "prototype.courses",
