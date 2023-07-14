@@ -17,7 +17,7 @@ export default function Hero() {
                     </p>
                     <div className="mt-[24px] flex items-center pl-[110px]">
                         <div className="mr-[13px]">
-                            <Link href="#">
+                            <Link href={route("prototype.courses")}>
                                 <PrimaryButton type="button">
                                     Learn More
                                 </PrimaryButton>
