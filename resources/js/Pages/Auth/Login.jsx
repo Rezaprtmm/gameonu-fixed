@@ -8,6 +8,7 @@ import { Head, Link, useForm } from "@inertiajs/react";
 export default function Login() {
     const { data, setData, post, processing, errors, reset } = useForm({
         uname: "",
+        email: "",
         password: "",
         remember: false,
     });
@@ -20,8 +21,8 @@ export default function Login() {
 
     const submit = (e) => {
         e.preventDefault();
-
         post(route("login"));
+        console.log(data);
     };
     return (
         <>
@@ -56,9 +57,10 @@ export default function Login() {
                                 <div className="mt-4">
                                     <TextInput
                                         type="text"
-                                        name="email"
+                                        name="uname"
                                         value={data.email}
                                         placeholder="Username or Email"
+                                        required
                                         className="mt-[8px] w-full border-black border-t-0 border-x-0 border-b-[1px] font-text text-[16px] font-normal leading-normal"
                                         autoComplete="email"
                                         isFocused={true}
@@ -76,6 +78,7 @@ export default function Login() {
                                         type="password"
                                         name="password"
                                         value={data.password}
+                                        required
                                         placeholder="Password"
                                         className="mt-[8px] w-full border-black border-t-0 border-x-0 border-b-[1px] font-text text-[16px] font-normal leading-normal"
                                         autoComplete="current-password"

@@ -16,6 +16,9 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */ 
+Route::get('/dashboard', function () {
+    return Inertia::render('Prototype/Dashboard/DashboardPage/Index');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::redirect("/", "/prototype/homepage");
 
@@ -44,24 +47,24 @@ Route::prefix('prototype')->name('prototype.')->group(function () {
         return Inertia::render('Prototype/Roadmap/Advanced/Index');
     })->name('roadmap.advanced');
 
+    Route::get('/dashboard', function () {
+        return Inertia::render('Prototype/Dashboard/DashboardPage/Index');
+    })->name('dashboard');
+
     Route::get('/login', function () {
-        return Inertia::render('Prototype/Login');
+        return Inertia::render('Login');
     })->name('login');
 
     Route::get('/register', function () {
-        return Inertia::render('Prototype/Register');
+        return Inertia::render('Register');
     })->name('register');
 
     Route::get('/checkout', function () {
         return Inertia::render('Prototype/Checkout');
     })->name('checkout');
 
-    Route::get('/dashboard', function () {
-        return Inertia::render('Prototype/Dashboard/DashboardPage/Index');
-    })->name('dashboard');
-
     Route::get('/community', function () {
-        return Inertia::render('Prototype/Dashboard/Community/Index');
+        return Inertia::render('Pages/Prototype/Dashboard/Community/Index');
     })->name('community');
 
     Route::get('/profile', function () {

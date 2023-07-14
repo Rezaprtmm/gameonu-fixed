@@ -3,11 +3,11 @@ import Footer from "../../Footer/Index";
 import Topbar from "../Topbar";
 import DetailDashboard from "./DetailDashboard";
 
-export default function DashboardPage() {
+export default function DashboardPage({ auth }) {
     return (
         <div>
-            <Authenticated />
-            <Topbar />
+            <Authenticated user={auth.user} />
+            <Topbar user={auth.user} />
             <DetailDashboard />
             <Footer />
         </div>
