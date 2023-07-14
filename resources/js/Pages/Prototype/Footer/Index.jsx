@@ -20,13 +20,13 @@ export default function Footer() {
                                 type="text"
                                 name="name"
                                 placeholder="name"
-                                className="border-white border-b-[1px] border-t-0 border-x-0 text-[#ccc]"
+                                className="border-white border-b-[1px] border-t-0 border-x-0 text-[#ccc] placeholder:text-white"
                             />
                             <TextInput
                                 type="email"
                                 name="email"
                                 placeholder="mail"
-                                className="mt-[20px] border-white border-b-[1px] border-t-0 border-x-0 text-[#ccc]"
+                                className="mt-[20px] border-white border-b-[1px] border-t-0 border-x-0 text-[#ccc] placeholder:text-white"
                             />
                             <div className="mt-[54px] ">
                                 <SecondaryButton>Subscribe</SecondaryButton>

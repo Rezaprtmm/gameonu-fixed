@@ -1,11 +1,10 @@
 import PrimaryButton from "@/Components/PrimaryButton";
-import { Link } from "@inertiajs/react";
 import React from "react";
 import MenuProfile from "./MenuProfile";
 
 export default function DetailProfile() {
     return (
-        <div className="max-w-screen mt-[70px]">
+        <div className="max-w-screen mt-[70px] border-secondary border-b-[3px]">
             <div className="container px-[100px] pb-[60px]">
                 <div className="flex flex-col justify-center">
                     <div>

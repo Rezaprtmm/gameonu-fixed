@@ -2,7 +2,7 @@ import CardCourse from "@/Components/CardCourse";
 
 export default function DetailDashboard() {
     return (
-        <div className="max-w-screen mt-[60px]">
+        <div className="max-w-screen mt-[60px] border-secondary border-b-[3px]">
             <div className="container px-[100px] pb-[60px]">
                 <div className="flex flex-col justify-center">
                     <h1 className="font-sans text-[24px] font-bold leading-normal text-secondary">

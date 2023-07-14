@@ -5,7 +5,7 @@ import { List } from "./List";
 
 export default function Authenticated() {
     return (
-        <nav className="stick max-w-screen border-b-2 border-secondary bg-white">
+        <nav className="stick max-w-screen border-b-[3px] border-secondary bg-white">
             <div className="container mx-auto flex h-[100px] items-center justify-between px-[110px]">
                 <div>
                     <Link href={route("prototype.homepage")}>
