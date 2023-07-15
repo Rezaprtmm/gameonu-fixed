@@ -8,7 +8,7 @@ export default function DashboardPage({ auth }) {
         <div>
             <Authenticated user={auth.user} />
             <Topbar user={auth.user} />
-            <DetailDashboard />
+            <DetailDashboard user={auth.user} />
             <Footer />
         </div>
     );

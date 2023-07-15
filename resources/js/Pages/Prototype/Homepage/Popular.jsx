@@ -82,7 +82,7 @@ export default function Popular() {
                                     rating={row.rating}
                                     price={row.price}
                                     level={row.levels}
-                                    thumbnail="/images/placeholder.webp"
+                                    thumbnail={row.image}
                                     key={key}
                                     className="absolute w-[343px]"
                                 />
