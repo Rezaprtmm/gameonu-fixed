@@ -1,7 +1,6 @@
 import CardCourse from "@/Components/CardCourse";
 import Sidebar from "./Sidebar";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 
 export default function CoursePage() {
     const [courses, setCourses] = useState([]);
@@ -11,13 +10,20 @@ export default function CoursePage() {
     }, []);
 
     const fetchCourses = async () => {
-        await axios
-            .get(`http://localhost:8000/api/courses`)
-            .then(({ data }) => {
+        try {
+            const response = await fetch("http://localhost:8000/api/courses");
+            if (response.ok) {
+                const data = await response.json();
                 setCourses(data);
-            });
+            } else {
+                throw new Error("Gagal mengambil data");
+            }
+        } catch (error) {
+            console.error(error);
+        }
     };
 
+    console.log(courses);
     return (
         <div className="max-w-screen w-full mt-[60px]">
             <div className="container mx-auto flex flex-col w-full">
