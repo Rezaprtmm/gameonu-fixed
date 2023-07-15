@@ -23,7 +23,6 @@ export default function CoursePage() {
         }
     };
 
-    console.log(courses);
     return (
         <div className="max-w-screen w-full mt-[60px]">
             <div className="container mx-auto flex flex-col w-full">

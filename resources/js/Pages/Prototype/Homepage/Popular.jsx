@@ -3,6 +3,7 @@ import CardCourse from "@/Components/CardCourse";
 import PrimaryButton from "@/Components/PrimaryButton";
 import Flickity from "react-flickity-component";
 import { Head, Link } from "@inertiajs/react";
+import { useEffect, useState } from "react";
 
 export default function Popular() {
     const flickityOptions = {
@@ -15,6 +16,29 @@ export default function Popular() {
         draggable: ">1",
     };
 
+    const [courses, setCourses] = useState([]);
+
+    useEffect(() => {
+        fetchCourses();
+    }, []);
+
+    const fetchCourses = async () => {
+        try {
+            const response = await fetch("http://localhost:8000/api/courses");
+            const data = await response.json();
+            let datas = [];
+            for (let i = 0; i < data.length; i++) {
+                if (data[i].member >= 10) {
+                    datas[i] = data[i];
+                }
+            }
+            setCourses(datas);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    console.log(courses);
     return (
         <>
             <Head>
@@ -51,15 +75,15 @@ export default function Popular() {
                             className="gap-[30px]"
                             options={flickityOptions}
                         >
-                            {[1, 2, 3, 4].map((i) => (
+                            {courses.map((row, key) => (
                                 <CardCourse
-                                    name="C#"
+                                    name={row.title}
                                     slug={"csharp"}
-                                    rating={4.6}
-                                    price={499}
-                                    level="Newbie"
+                                    rating={row.rating}
+                                    price={row.price}
+                                    level={row.levels}
                                     thumbnail="/images/placeholder.webp"
-                                    key={i}
+                                    key={key}
                                     className="absolute w-[343px]"
                                 />
                             ))}
