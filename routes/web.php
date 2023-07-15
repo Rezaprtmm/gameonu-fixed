@@ -24,8 +24,6 @@ Route::get('/dashboard', function () {
     return Inertia::render('User/Dashboard/Index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::resource('courses', CoursesController::class);
-
 Route::prefix('prototype')->name('prototype.')->group(function () {
     Route::get('/homepage', function () {
         return Inertia::render('Prototype/Homepage/Index');
