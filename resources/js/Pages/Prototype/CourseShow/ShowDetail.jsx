@@ -70,7 +70,7 @@ export default function ShowDetail() {
                             </div>
                             <div className="">
                                 <h3 className="font-text text-[16px] font-normal leading-normal">
-                                    Comunity
+                                    Community
                                 </h3>
                                 <p className="font-text text-[24px] font-normal leading-normal text-[#007D23]">
                                     Yes

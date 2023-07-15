@@ -1,7 +1,23 @@
 import CardCourse from "@/Components/CardCourse";
 import Sidebar from "./Sidebar";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function CoursePage() {
+    const [courses, setCourses] = useState([]);
+
+    useEffect(() => {
+        fetchCourses();
+    }, []);
+
+    const fetchCourses = async () => {
+        await axios
+            .get(`http://localhost:8000/api/courses`)
+            .then(({ data }) => {
+                setCourses(data);
+            });
+    };
+
     return (
         <div className="max-w-screen w-full mt-[60px]">
             <div className="container mx-auto flex flex-col w-full">
@@ -21,14 +37,14 @@ export default function CoursePage() {
 
                     <div className="px-[60px] ml-64 -mt-[475px] pt-[40px] border-secondary border-l-[3px]">
                         <div className="grid grid-cols-3">
-                            {[1, 2, 3, 4, 5, 6, 7].map((i) => (
+                            {courses.map((row, key) => (
                                 <CardCourse
-                                    key={i}
-                                    name="C#"
+                                    key={key}
+                                    name={row.title}
                                     slug="csharp-course"
-                                    rating={4.6}
-                                    price={499}
-                                    level="Newbie"
+                                    rating={row.rating}
+                                    price={row.price}
+                                    level={row.levels}
                                     thumbnail="/images/placeholder.webp"
                                     className="mb-[30px] w-[343px] relative"
                                 />
