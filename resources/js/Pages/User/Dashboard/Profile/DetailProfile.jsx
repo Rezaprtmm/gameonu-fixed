@@ -31,9 +31,9 @@ export default function DetailProfile({ user }) {
                     </div>
 
                     <div className="w-full mt-[24px]">
-                        <div className="bg-white border-secondary border w-max">
-                            <div className="p-[20px] flex flex-row w-full gap-[24px]">
-                                <div className="w-[70%]">
+                        <div className="bg-white border-secondary border w-[364px] flex flex-row">
+                            <div className="p-[20px] flex flex-row w-full">
+                                <div className="w-[60%]">
                                     <MenuProfile
                                         icon={
                                             <svg
@@ -132,7 +132,7 @@ export default function DetailProfile({ user }) {
                                         description={regDate[0]}
                                     />
                                 </div>
-                                <div className="w-[30%]">
+                                <div className="w-[40%]">
                                     <PrimaryButton className="text-[12px] font-sans fon-bold leading-normal">
                                         Edit Profile
                                     </PrimaryButton>

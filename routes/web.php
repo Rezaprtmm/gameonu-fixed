@@ -17,7 +17,7 @@ use Inertia\Inertia;
 |
 */ 
 Route::get('/dashboard', function () {
-    return Inertia::render('Prototype/Dashboard/DashboardPage/Index');
+    return Inertia::render('User/Dashboard/DashboardPage/Index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::redirect("/", "/prototype/homepage");
