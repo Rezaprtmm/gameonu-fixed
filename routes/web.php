@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Http\Controllers\User\DashboardController;
+use App\Http\Controllers\CoursesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +23,8 @@ Route::redirect("/", "/prototype/homepage");
 Route::get('/dashboard', function () {
     return Inertia::render('User/Dashboard/Index');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::resource('courses', CoursesController::class);
 
 Route::prefix('prototype')->name('prototype.')->group(function () {
     Route::get('/homepage', function () {
@@ -74,10 +76,6 @@ Route::prefix('prototype')->name('prototype.')->group(function () {
     })->name('profile');
 
 });
-
-Route::resource('users', UsersController::class)
-->only(['index', 'store'])
-->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

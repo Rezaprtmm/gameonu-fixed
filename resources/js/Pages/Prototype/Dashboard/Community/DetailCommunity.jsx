@@ -1,6 +1,29 @@
 import CardComunity from "./CardComunity";
+import React, { useEffect, useState } from "react";
 
-export default function DetailCommunity() {
+export default function DetailCommunity({ user }) {
+    const data = user.course.split(",");
+
+    const [courses, setCourses] = useState([]);
+
+    useEffect(() => {
+        fetchCourses();
+    }, []);
+
+    const fetchCourses = async () => {
+        const response = await fetch("http://localhost:8000/api/courses");
+        const datas = await response.json();
+        const sort = [];
+        for (let i = 0; i < data.length; i++) {
+            for (let a = 0; a < datas.length; a++) {
+                if (data[i] === datas[a].cid) {
+                    sort[i] = datas[a];
+                    break;
+                }
+            }
+        }
+        setCourses(sort);
+    };
     return (
         <div className="max-w-screen mt-[70px] border-secondary border-b-[3px]">
             <div className="container px-[100px]">
@@ -9,11 +32,9 @@ export default function DetailCommunity() {
                         My Community
                     </h1>
                     <div className="mt-[24px] grid grid-cols-4">
-                        {[1, 2, 3, 4, 5, 6].map((i) => (
+                        {courses.map((row) => (
                             <CardComunity
-                                title={
-                                    'Community Class "Introduction to GameDevelopment"'
-                                }
+                                title={"Community Class, " + row.title}
                                 linktele={"/"}
                                 linkwa={"/"}
                                 className="mb-[30px]"

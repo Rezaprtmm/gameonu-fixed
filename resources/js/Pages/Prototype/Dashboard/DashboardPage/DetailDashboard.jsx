@@ -37,11 +37,11 @@ export default function DetailDashboard({ user }) {
                             <CardCourse
                                 key={key}
                                 name={row.title}
-                                slug="csharp-course"
+                                slug={row.title.replace(/\s/g, "-")}
                                 rating={row.rating}
                                 price={row.price}
                                 level={row.levels}
-                                thumbnail="/images/placeholder.webp"
+                                thumbnail={row.image}
                                 className="mb-[30px] w-[295px] relative"
                             />
                         ))}

@@ -10,6 +10,9 @@ export default function CardCourse({
     thumbnail,
     className = "",
 }) {
+    price = price.toString();
+    price = price.slice(0, -3);
+    price = parseInt(price);
     return (
         <div
             className={`border-[#e1d2f9] border-[1px] group mr-[30px] flex items-center justify-center ${className}`}

@@ -8,7 +8,7 @@ export default function Community({ auth }) {
         <div>
             <Authenticated user={auth.user} />
             <Topbar user={auth.user} />
-            <DetailCommunity />
+            <DetailCommunity user={auth.user} />
             <Footer />
         </div>
     );

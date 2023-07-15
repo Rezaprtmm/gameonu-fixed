@@ -7,7 +7,7 @@ import Lessons from "./Lessons";
 import CardReviews from "@/Components/CardReviews";
 import Flickity from "react-flickity-component";
 
-export default function ShowDetail() {
+export default function ShowDetail({ courses }) {
     const flickityOptions = {
         cellAlign: "left",
         contain: true, // Add the contain property
@@ -17,6 +17,8 @@ export default function ShowDetail() {
         prevNextButtons: true,
         draggable: ">1",
     };
+
+    console.log(courses);
     return (
         <>
             <Head>
