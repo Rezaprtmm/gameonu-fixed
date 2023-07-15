@@ -1,6 +1,30 @@
 import CardCourse from "@/Components/CardCourse";
+import React, { useEffect, useState } from "react";
 
-export default function DetailDashboard() {
+export default function DetailDashboard({ user }) {
+    const data = user.course.split(",");
+
+    const [courses, setCourses] = useState([]);
+
+    useEffect(() => {
+        fetchCourses();
+    }, []);
+
+    const fetchCourses = async () => {
+        const response = await fetch("http://localhost:8000/api/courses");
+        const datas = await response.json();
+        const sort = [];
+        for (let i = 0; i < data.length; i++) {
+            for (let a = 0; a < datas.length; a++) {
+                if (data[i] === datas[a].cid) {
+                    sort[i] = datas[a];
+                    break;
+                }
+            }
+        }
+        setCourses(sort);
+    };
+
     return (
         <div className="max-w-screen mt-[60px] border-secondary border-b-[3px]">
             <div className="container px-[100px] pb-[60px]">
@@ -9,15 +33,18 @@ export default function DetailDashboard() {
                         My Course
                     </h1>
                     <div className="grid grid-cols-4 mt-[24px]">
-                        <CardCourse
-                            name="Introduction to Game..."
-                            slug="csharp-course"
-                            rating={4.6}
-                            price={499}
-                            level="Newbie"
-                            thumbnail="/images/bg-1.png"
-                            className="mb-[30px] w-[343px] relative "
-                        />
+                        {courses.map((row, key) => (
+                            <CardCourse
+                                key={key}
+                                name={row.title}
+                                slug="csharp-course"
+                                rating={row.rating}
+                                price={row.price}
+                                level={row.levels}
+                                thumbnail={row.image}
+                                className="mb-[30px] w-[295px] relative"
+                            />
+                        ))}
                     </div>
                 </div>
                 <div className="flex flex-col mt-[24px] w-full">

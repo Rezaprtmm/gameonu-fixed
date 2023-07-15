@@ -50,7 +50,7 @@ export default function CoursePage() {
                                     rating={row.rating}
                                     price={row.price}
                                     level={row.levels}
-                                    thumbnail="/images/placeholder.webp"
+                                    thumbnail={row.image}
                                     className="mb-[30px] w-[343px] relative"
                                 />
                             ))}
