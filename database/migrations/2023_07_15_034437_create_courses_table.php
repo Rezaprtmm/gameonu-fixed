@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
+            $table->string('cid')->unique()->nullable();
             $table->string('levels');
             $table->string('title');
             $table->bigInteger('price');

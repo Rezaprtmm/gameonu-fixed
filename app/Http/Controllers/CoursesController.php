@@ -16,7 +16,7 @@ class CoursesController extends Controller
      */
     public function index()
     {
-        return Courses::select('id', 'levels', 'title', 'price', 'rating', 'member', 'image')->get();
+        return Courses::select('id', 'cid', 'levels', 'title', 'price', 'rating', 'member', 'image')->get();
     }
 
     /**
