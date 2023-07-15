@@ -1,14 +1,14 @@
 import Authenticated from "@/Layouts/Authenticated/Index";
-import Footer from "../../Footer/Index";
+import DetailCommunity from "./DetailCommunity";
+import Footer from "@/Pages/Prototype/Footer/Index";
 import Topbar from "../Topbar";
-import DetailProfile from "./DetailProfile";
 
-export default function Profile({ auth }) {
+export default function Community({ auth }) {
     return (
         <div>
             <Authenticated user={auth.user} />
             <Topbar user={auth.user} />
-            <DetailProfile user={auth.user} />
+            <DetailCommunity />
             <Footer />
         </div>
     );

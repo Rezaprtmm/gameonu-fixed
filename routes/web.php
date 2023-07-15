@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use Appp\Http\Controllers\UsersController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\User\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,11 +16,13 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */ 
-Route::get('/dashboard', function () {
-    return Inertia::render('User/Dashboard/DashboardPage/Index');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::redirect("/", "/prototype/homepage");
+
+
+Route::get('/dashboard', function () {
+    return Inertia::render('User/Dashboard/Index');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::prefix('prototype')->name('prototype.')->group(function () {
     Route::get('/homepage', function () {
@@ -31,9 +33,9 @@ Route::prefix('prototype')->name('prototype.')->group(function () {
         return Inertia::render('Prototype/Courses/Index');
     })->name('courses');
     
-    Route::get('/courseShow', function () {
+    Route::get('/courseShow/{slug}', function () {
         return Inertia::render('Prototype/CourseShow/Show');
-    })->name('courseShow');
+    })->name('courseShow.show');
 
     Route::get('/roadmap/newbie', function () {
         return Inertia::render('Prototype/Roadmap/Newbie/Index');
@@ -64,7 +66,7 @@ Route::prefix('prototype')->name('prototype.')->group(function () {
     })->name('checkout');
 
     Route::get('/community', function () {
-        return Inertia::render('Pages/Prototype/Dashboard/Community/Index');
+        return Inertia::render('Prototype/Dashboard/Community/Index');
     })->name('community');
 
     Route::get('/profile', function () {

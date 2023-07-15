@@ -1,14 +1,14 @@
 import Authenticated from "@/Layouts/Authenticated/Index";
 import Topbar from "../Topbar";
-import DetailDashboard from "./DetailDashboard";
+import DetailProfile from "./DetailProfile";
 import Footer from "@/Pages/Prototype/Footer/Index";
 
-export default function DashboardPage({ auth }) {
+export default function Profile({ auth }) {
     return (
         <div>
             <Authenticated user={auth.user} />
             <Topbar user={auth.user} />
-            <DetailDashboard user={auth.user} />
+            <DetailProfile user={auth.user} />
             <Footer />
         </div>
     );

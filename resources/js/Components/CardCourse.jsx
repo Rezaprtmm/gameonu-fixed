@@ -49,7 +49,7 @@ export default function CardCourse({
                     </p>
                 </div>
                 <Link
-                    href={route("prototype.courseShow")}
+                    href={route("prototype.courseShow.show", slug)}
                     className="inset-0 absolute z-50"
                 ></Link>
             </div>

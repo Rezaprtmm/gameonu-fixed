@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import CardCourse from "@/Components/CardCourse";
-<<<<<<< HEAD
 import Chart from "react-apexcharts";
 
 export default function DetailDashboard() {
@@ -48,34 +47,6 @@ export default function DetailDashboard() {
         },
     ]);
 
-=======
-import React, { useEffect, useState } from "react";
-
-export default function DetailDashboard({ user }) {
-    const data = user.course.split(",");
-
-    const [courses, setCourses] = useState([]);
-
-    useEffect(() => {
-        fetchCourses();
-    }, []);
-
-    const fetchCourses = async () => {
-        const response = await fetch("http://localhost:8000/api/courses");
-        const datas = await response.json();
-        const sort = [];
-        for (let i = 0; i < data.length; i++) {
-            for (let a = 0; a < datas.length; a++) {
-                if (data[i] === datas[a].cid) {
-                    sort[i] = datas[a];
-                    break;
-                }
-            }
-        }
-        setCourses(sort);
-    };
-
->>>>>>> ed666ad2dfa03e83978c38afa797370db97f8e16
     return (
         <div className="max-w-screen mt-[60px] border-secondary border-b-[3px]">
             <div className="container px-[100px] pb-[60px]">
@@ -84,7 +55,6 @@ export default function DetailDashboard({ user }) {
                         My Course
                     </h1>
                     <div className="grid grid-cols-4 mt-[24px]">
-<<<<<<< HEAD
                         <CardCourse
                             name="Introduction to Game..."
                             slug="csharp-course"
@@ -94,8 +64,7 @@ export default function DetailDashboard({ user }) {
                             thumbnail="/images/bg-1.png"
                             className="mb-[30px] w-[343px] relative"
                         />
-=======
-                        {courses.map((row, key) => (
+                        {/* {courses.map((row, key) => (
                             <CardCourse
                                 key={key}
                                 name={row.title}
@@ -106,8 +75,7 @@ export default function DetailDashboard({ user }) {
                                 thumbnail={row.image}
                                 className="mb-[30px] w-[295px] relative"
                             />
-                        ))}
->>>>>>> ed666ad2dfa03e83978c38afa797370db97f8e16
+                        ))} */}
                     </div>
                 </div>
                 <div className="flex flex-col mt-[24px] w-full">

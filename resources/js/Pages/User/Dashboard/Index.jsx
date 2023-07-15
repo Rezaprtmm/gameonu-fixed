@@ -1,14 +1,14 @@
 import Authenticated from "@/Layouts/Authenticated/Index";
-import Footer from "../../Footer/Index";
 import Topbar from "../Topbar";
-import DetailCommunity from "./DetailCommunity";
+import DetailDashboard from "./DetailDashboard";
+import Footer from "@/Pages/Prototype/Footer/Index";
 
-export default function Community({ auth }) {
+export default function Dashboard({ auth }) {
     return (
         <div>
             <Authenticated user={auth.user} />
             <Topbar user={auth.user} />
-            <DetailCommunity />
+            <DetailDashboard user={auth.user} />
             <Footer />
         </div>
     );

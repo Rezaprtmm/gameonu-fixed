@@ -42,15 +42,15 @@ export default function CoursePage() {
 
                     <div className="px-[60px] ml-64 -mt-[475px] pt-[40px] border-secondary border-l-[3px]">
                         <div className="grid grid-cols-3">
-                            {courses.map((row, key) => (
+                            {[1, 2, 3, 4, 5, 6].map((i) => (
                                 <CardCourse
-                                    key={key}
-                                    name={row.title}
+                                    key={i}
+                                    name={"Introduction to Game..."}
                                     slug="csharp-course"
-                                    rating={row.rating}
-                                    price={row.price}
-                                    level={row.levels}
-                                    thumbnail={row.image}
+                                    rating={4.6}
+                                    price={499}
+                                    level={"Newbie"}
+                                    thumbnail={"/images/bg-1.png"}
                                     className="mb-[30px] w-[343px] relative"
                                 />
                             ))}
