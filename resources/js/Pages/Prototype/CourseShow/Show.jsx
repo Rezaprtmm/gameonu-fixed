@@ -7,7 +7,7 @@ export default function Show({ auth }) {
     return (
         <div>
             <Authenticated user={auth.user} />
-            <ShowDetail />
+            <ShowDetail user={auth.user} />
             <Footer />
         </div>
     );

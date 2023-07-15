@@ -2,21 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Courses;
+use App\Models\Lessons;
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
-use Carbon\Carbon;
-
-class CoursesController extends Controller
+class LessonsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return Courses::select('id', 'cid', 'levels', 'title', 'price', 'rating', 'member', 'image', 'about1', 'about2', 'about3')->get();
+        return Lessons::select('id', 'courseId', 'title')->get();
     }
 
     /**
@@ -38,17 +34,17 @@ class CoursesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Courses $courses)
+    public function show(Lessons $lessons)
     {
         return response()->json([
-            'courses'=>$courses
+            'lessons'=>$lessons
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Courses $courses)
+    public function edit(Lessons $lessons)
     {
         //
     }
@@ -56,7 +52,7 @@ class CoursesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Courses $courses)
+    public function update(Request $request, Lessons $lessons)
     {
         //
     }
@@ -64,7 +60,7 @@ class CoursesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Courses $courses)
+    public function destroy(Lessons $lessons)
     {
         //
     }

@@ -20,6 +20,9 @@ return new class extends Migration
             $table->integer('rating');
             $table->bigInteger('member');
             $table->text('image')->nullable();
+            $table->string('about1');
+            $table->string('about2');
+            $table->string('about3')->nullable();
             $table->timestamps();
         });
     }

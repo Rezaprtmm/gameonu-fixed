@@ -61,13 +61,17 @@ Route::prefix('prototype')->name('prototype.')->group(function () {
         return Inertia::render('Register');
     })->name('register');
 
-    Route::get('/checkout', function () {
+    Route::get('/checkout/{slug}', function () {
         return Inertia::render('Prototype/Checkout');
-    })->name('checkout');
+    })->middleware(['auth', 'verified'])->name('checkout.show');
 
     Route::get('/community', function () {
         return Inertia::render('Prototype/Dashboard/Community/Index');
     })->name('community');
+
+    Route::get('/success', function () {
+        return Inertia::render('Prototype/Success');
+    })->name('success');
 
     Route::get('/profile', function () {
         return Inertia::render('Prototype/Dashboard/Profile/Index');

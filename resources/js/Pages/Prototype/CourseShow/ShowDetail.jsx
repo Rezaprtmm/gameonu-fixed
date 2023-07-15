@@ -6,8 +6,44 @@ import Release from "./Release";
 import Lessons from "./Lessons";
 import CardReviews from "@/Components/CardReviews";
 import Flickity from "react-flickity-component";
+import React, { useEffect, useState } from "react";
+import { Link } from "@inertiajs/react";
 
-export default function ShowDetail({ courses }) {
+export default function ShowDetail({ slug }) {
+    const [courses, setCourses] = useState([]);
+    const [lessons, setLessons] = useState([]);
+    let title = window.location.pathname.split("/");
+    slug = title[3];
+    let a = 0;
+    title = title[3].replace(/-/g, " ");
+    const save = [];
+
+    const fetchCourses = async () => {
+        const response = await fetch("http://localhost:8000/api/courses");
+        const data = await response.json();
+        const responses = await fetch("http://localhost:8000/api/lessons");
+        const datas = await responses.json();
+        setLessons(datas);
+        for (let i = 0; i < data.length; i++) {
+            if (title === data[i].title) {
+                setCourses(data[i]);
+            }
+        }
+    };
+    useEffect(() => {
+        fetchCourses();
+    }, []);
+
+    for (let i = 0; i < 5; i++) {
+        for (a; a < lessons.length; a++) {
+            if (courses.cid === lessons[a].courseId) {
+                save[i] = lessons[a];
+                ++a;
+                break;
+            }
+        }
+    }
+
     const flickityOptions = {
         cellAlign: "left",
         contain: true, // Add the contain property
@@ -18,7 +54,6 @@ export default function ShowDetail({ courses }) {
         draggable: ">1",
     };
 
-    console.log(courses);
     return (
         <>
             <Head>
@@ -34,7 +69,7 @@ export default function ShowDetail({ courses }) {
                             Online Course
                         </h1>
                         <h1 className="font-sans text-secondary text-[40px] font-bold leading-normal">
-                            Introduction to Game Development
+                            {title}
                         </h1>
                         <div className="flex gap-[30px] mt-[40px]">
                             {ListRelease.map((item, index) => (
@@ -59,7 +94,7 @@ export default function ShowDetail({ courses }) {
                                     Level
                                 </h3>
                                 <p className="font-text text-[24px] font-normal leading-normal">
-                                    Newbie
+                                    {courses.levels}
                                 </p>
                             </div>
                             <div className="">
@@ -96,39 +131,27 @@ export default function ShowDetail({ courses }) {
                                 5 Lessons (15 hours)
                             </h1>
                             <div className="mt-[24px]">
-                                <Lessons
-                                    title={"Introduction to Game Development"}
-                                    time={3}
-                                />
-                                <Lessons
-                                    title={"Software and Tools to Use"}
-                                    time={3}
-                                />
-                                <Lessons
-                                    title={
-                                        "Basic Programming Concepts for Game Dev..."
-                                    }
-                                    time={3}
-                                />
-                                <Lessons
-                                    title={
-                                        "Create Simple Games with Game Engine"
-                                    }
-                                    time={3}
-                                />
-                                <Lessons
-                                    title={
-                                        "Introduction to Graphics in Game Develop..."
-                                    }
-                                    time={3}
-                                />
-                                <PrimaryButton
-                                    type="button"
-                                    className="w-[505px] h-[60px]"
+                                {save.map((row) => (
+                                    <Lessons
+                                        title={row.title}
+                                        time={3}
+                                        key={row.id}
+                                    />
+                                ))}
+                                <Link
+                                    href={route(
+                                        "prototype.checkout.show",
+                                        slug
+                                    )}
                                 >
-                                    {" "}
-                                    Join Course{" "}
-                                </PrimaryButton>
+                                    <PrimaryButton
+                                        type="button"
+                                        className="w-[505px] h-[60px]"
+                                    >
+                                        {" "}
+                                        Join Course{" "}
+                                    </PrimaryButton>
+                                </Link>
                             </div>
                         </div>
                         <div className="w-1/2 pt-[60px] px-[100px]">
@@ -136,17 +159,8 @@ export default function ShowDetail({ courses }) {
                                 About Course
                             </h1>
                             <p className="mt-[24px] font-text text-[16px] font-normal leading-normal text-justify">
-                                The course provides a comprehensive introduction
-                                to the exciting field of game development.
-                                Designed for beginners, this course offers a
-                                step-by-step approach to understanding the
-                                fundamental concepts and skills required to
-                                create games. Through a combination of
-                                theoretical knowledge and practical exercises,
-                                participants will gain a solid foundation in
-                                game development and be equipped with the
-                                necessary tools to pursue further learning or
-                                even start developing their own games.
+                                {courses.about1} {courses.about2}{" "}
+                                {courses.about3}
                             </p>
                         </div>
                     </div>

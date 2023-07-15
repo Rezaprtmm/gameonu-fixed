@@ -1,6 +1,45 @@
 import PrimaryButton from "@/Components/PrimaryButton";
+import { Link } from "@inertiajs/react";
+import React, { useEffect, useState } from "react";
 
-export default function Checkout() {
+export default function Checkout({ auth }) {
+    let title = window.location.pathname.split("/");
+    title = title[3].replace(/-/g, " ");
+    let date = new Date();
+    let cut, tax, sum;
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+    const cod = `${day}-${month}-${year}`;
+
+    const hrs = String(date.getHours()).padStart(2, "0");
+    const mnt = String(date.getMinutes()).padStart(2, "0");
+    const scd = String(date.getSeconds()).padStart(2, "0");
+    const cot = `${hrs}:${mnt}:${scd}`;
+    const [courses, setCourses] = useState([]);
+
+    const fetchCourses = async () => {
+        const response = await fetch("http://localhost:8000/api/courses");
+        const data = await response.json();
+        for (let i = 0; i < data.length; i++) {
+            if (title === data[i].title) {
+                setCourses(data[i]);
+            }
+        }
+    };
+    useEffect(() => {
+        fetchCourses();
+    }, []);
+
+    if (courses.length != 0) {
+        cut = courses.price;
+        cut = cut.toString();
+        cut = cut.slice(0, -3);
+        cut = parseInt(cut);
+        tax = cut * 0.11;
+        sum = cut + tax;
+    }
+
     return (
         <div className="max-w-screen bg-checkout h-screen flex">
             <div className="container flex flex-row items-center justify-center">
@@ -16,7 +55,7 @@ export default function Checkout() {
                                         Course Name
                                     </h1>
                                     <p className="font-text text-[16px] font-normal leading-normal">
-                                        Introduction to Game Development
+                                        {title}
                                     </p>
                                 </div>
                                 <div className="mt-[16px]">
@@ -24,7 +63,7 @@ export default function Checkout() {
                                         Course Level
                                     </h1>
                                     <p className="font-text text-[16px] font-normal leading-normal">
-                                        Newbie
+                                        {courses.levels}
                                     </p>
                                 </div>
                                 <div className="mt-[16px]">
@@ -32,15 +71,15 @@ export default function Checkout() {
                                         Checkout Date
                                     </h1>
                                     <p className="font-text text-[16px] font-normal leading-normal">
-                                        2023 - 07 - 09
+                                        {cod}
                                     </p>
                                 </div>
                                 <div className="mt-[16px]">
                                     <h1 className="font-sans text-[20px] font-bold leading-normal">
-                                        Chekout Time
+                                        Checkout Time
                                     </h1>
                                     <p className="font-text text-[16px] font-normal leading-normal">
-                                        10:08:53
+                                        {cot}
                                     </p>
                                 </div>
                             </div>
@@ -50,7 +89,7 @@ export default function Checkout() {
                                         Course Price
                                     </h1>
                                     <p className="font-text text-[16px] font-bold leading-normal text-[#269B40]">
-                                        IDR 499K
+                                        IDR {cut}K
                                     </p>
                                 </div>
                                 <div className="mt-[16px]">
@@ -58,7 +97,7 @@ export default function Checkout() {
                                         Tax / PPN 11%
                                     </h1>
                                     <p className="font-text text-[16px] font-bold leading-normal text-[#269B40]">
-                                        IDR 54.89K
+                                        IDR {tax}K
                                     </p>
                                 </div>
                                 <div className="mt-[16px]">
@@ -66,15 +105,17 @@ export default function Checkout() {
                                         Total
                                     </h1>
                                     <p className="font-text text-[16px] font-bold leading-normal text-[#269B40]">
-                                        IDR 553.89K
+                                        IDR {sum}K
                                     </p>
                                 </div>
                             </div>
                         </div>
                         <div className="mt-[24px]">
-                            <PrimaryButton className="w-full">
-                                Pay Now
-                            </PrimaryButton>
+                            <Link href={route("prototype.success")}>
+                                <PrimaryButton className="w-full">
+                                    Pay Now
+                                </PrimaryButton>
+                            </Link>
                         </div>
                     </div>
                 </div>

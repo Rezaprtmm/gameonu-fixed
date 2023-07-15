@@ -1,7 +1,7 @@
 import { Link } from "@inertiajs/react";
 export default function Lessons({ title, time }) {
     return (
-        <Link className="bg-[#E1D2F9] flex py-[17px] w-[505px] mb-[16px] justify-between px-[20px]">
+        <Link className="bg-[#E1D2F9] flex py-[17px] w-[505px] mb-[16px] justify-between gap-[8px] px-[20px]">
             <div className="flex gap-[8px]">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

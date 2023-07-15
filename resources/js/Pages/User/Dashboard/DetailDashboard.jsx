@@ -47,7 +47,10 @@ export default function DetailDashboard({ user }) {
         },
     ]);
 
-    const data = user.course.split(",");
+    let data;
+    if (user.course) {
+        data = user.course.split(",");
+    }
 
     const [courses, setCourses] = useState([]);
 
