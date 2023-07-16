@@ -16,7 +16,7 @@ export default function PrimaryButton({
             className={`bg-secondary px-[30px] py-[10px] font-bold text-white ${
                 processing && "oppacity-20"
             } ${className}`}
-            disabled={processing}
+            disabled={disabled || processing}
         >
             {children}
         </button>

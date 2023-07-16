@@ -4,9 +4,11 @@ import React, { useEffect, useState } from "react";
 
 export default function Checkout({ auth }) {
     let title = window.location.pathname.split("/");
+    let user = auth.user;
+    let id = user.id;
     title = title[3].replace(/-/g, " ");
     let date = new Date();
-    let cut, tax, sum;
+    let cut, tax, sum, courseAdd;
     const day = String(date.getDate()).padStart(2, "0");
     const month = String(date.getMonth() + 1).padStart(2, "0");
     const year = date.getFullYear();
@@ -17,6 +19,7 @@ export default function Checkout({ auth }) {
     const scd = String(date.getSeconds()).padStart(2, "0");
     const cot = `${hrs}:${mnt}:${scd}`;
     const [courses, setCourses] = useState([]);
+    const url = "http://localhost:8000/api/users/{id}";
 
     const fetchCourses = async () => {
         const response = await fetch("http://localhost:8000/api/courses");
@@ -39,28 +42,54 @@ export default function Checkout({ auth }) {
         cut = parseInt(cut);
         tax = cut * 0.11;
         sum = cut + tax;
+        courseAdd = user.course + "," + courses.cid;
     }
 
-    const handlePayNow = async () => {
-        try {
-            const response = await fetch("http://localhost:8000/api/users", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    course: courses.cid,
-                }),
-            });
+    const handlePayNow = async (e) => {
+        e.preventDefault();
+        const data = {
+            course: courseAdd,
+        };
 
-            if (response.ok) {
-                console.log("Course data sent successfully");
-            } else {
-                throw new Error("Failed to send course data");
-            }
-        } catch (error) {
-            console.error(error);
-        }
+        fetch(url.replace("{id}", id), {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                if (result.success) {
+                    // Redirect ke halaman sukses
+                    window.location.href = "/prototype/success";
+                } else {
+                    // Menangani respons lainnya jika diperlukan
+                    // ...
+                }
+            })
+            .catch((error) => {
+                console.error("Terjadi kesalahan:", error);
+            });
+        // try {
+        //     const response = await fetch("http://localhost:8000/api/users", {
+        //         method: "PUT",
+        //         headers: {
+        //             "Content-Type": "application/json",
+        //         },
+        //         body: JSON.stringify({
+        //             course: courseAdd,
+        //         }),
+        //     });
+
+        //     if (response.ok) {
+        //         console.log("Course data sent successfully");
+        //     } else {
+        //         throw new Error("Failed to send course data");
+        //     }
+        // } catch (error) {
+        //     console.error(error);
+        // }
     };
 
     return (
@@ -134,10 +163,7 @@ export default function Checkout({ auth }) {
                             </div>
                         </div>
                         <div className="mt-[24px]">
-                            <Link
-                                href={route("prototype.success")}
-                                onClick={handlePayNow}
-                            >
+                            <Link onClick={handlePayNow}>
                                 <PrimaryButton className="w-full">
                                     Pay Now
                                 </PrimaryButton>

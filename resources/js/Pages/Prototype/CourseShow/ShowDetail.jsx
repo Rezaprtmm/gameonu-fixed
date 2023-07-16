@@ -9,7 +9,7 @@ import Flickity from "react-flickity-component";
 import React, { useEffect, useState } from "react";
 import { Link } from "@inertiajs/react";
 
-export default function ShowDetail({ slug }) {
+export default function ShowDetail({ slug, user }) {
     const [courses, setCourses] = useState([]);
     const [lessons, setLessons] = useState([]);
     let title = window.location.pathname.split("/");
@@ -17,6 +17,15 @@ export default function ShowDetail({ slug }) {
     let a = 0;
     title = title[3].replace(/-/g, " ");
     const save = [];
+
+    let userCourse = user.course;
+    let courseCheck;
+    if (user.course) {
+        courseCheck = userCourse.split(",");
+    }
+    console.log(courseCheck);
+    let btnText = "Join Course";
+    let btnAct = true;
 
     const fetchCourses = async () => {
         const response = await fetch("http://localhost:8000/api/courses");
@@ -54,6 +63,21 @@ export default function ShowDetail({ slug }) {
         draggable: ">1",
     };
 
+    if (courses.length != 0 && user.course) {
+        for (let i = 0; i < courseCheck.length; i++) {
+            if (courses.cid === courseCheck[i]) {
+                btnText = "You already bought this";
+                btnAct = true;
+                break;
+            }
+
+            if (i === courseCheck.length - 1) {
+                btnAct = false;
+            }
+        }
+    } else {
+        btnAct = false;
+    }
     return (
         <>
             <Head>
@@ -147,9 +171,10 @@ export default function ShowDetail({ slug }) {
                                     <PrimaryButton
                                         type="button"
                                         className="w-[505px] h-[60px]"
+                                        disabled={btnAct}
                                     >
                                         {" "}
-                                        Join Course{" "}
+                                        {btnText}{" "}
                                     </PrimaryButton>
                                 </Link>
                             </div>

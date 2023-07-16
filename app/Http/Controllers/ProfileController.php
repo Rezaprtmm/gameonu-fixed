@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -13,6 +14,22 @@ use Inertia\Response;
 
 class ProfileController extends Controller
 {
+    public function index()
+    {
+        return User::select('id', 'name', 'email', 'course')->get();
+    }
+
+    public function store(Request $request, User $users)
+    {
+        $users->fill($request->post())->update();
+        $courseId = $request->course;
+        // if ($request->user()->isDirty('email')) {
+        //     $request->user()->email_verified_at = null;
+        // }
+        $users->course = $courseId;
+        $users->save();
+
+    }
     /**
      * Display the user's profile form.
      */
@@ -27,17 +44,24 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    // public function update(Request $request, User $users)
+    // {
+    //     $users->fill($request->post())->update();
+    //     $users->course = $request->input('course');
+    //     $users->save();
+
+    // }
+    public function update(Request $request, $id)
     {
-        $request->user()->fill($request->validated());
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
+        // Proses pembaruan field dalam database
+        $user = User::findOrFail($id);
+        $user->fill($request->post());
+        $user->course = $request->input('course');
+        $user->save();
 
-        $request->user()->save();
-
-        return Redirect::route('profile.edit');
+        // Response berhasil pembaruan
+        return response()->json(['success' => true]);
     }
 
     /**
