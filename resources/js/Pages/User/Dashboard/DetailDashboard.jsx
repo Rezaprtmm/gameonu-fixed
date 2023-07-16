@@ -23,6 +23,7 @@ export default function DetailDashboard({ user }) {
                 if (data[i] === datas[a].cid) {
                     sort[i] = datas[a];
                     break;
+                }
             }
         }
         setCourses(sort);
@@ -64,7 +65,7 @@ export default function DetailDashboard({ user }) {
     const [series, setSeries] = useState([
         {
             name: "Progress",
-            data: [1, 2, 3, 4],
+            data: [1, 2, 3, 4, 5],
         },
         {
             name: "Available",
