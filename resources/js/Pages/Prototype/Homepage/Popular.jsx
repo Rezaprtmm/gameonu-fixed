@@ -5,6 +5,7 @@ import Flickity from "react-flickity-component";
 import { Head, Link } from "@inertiajs/react";
 import { useEffect, useState } from "react";
 
+// This section will work if courses member reach minimum members of 10, lesser than that, card will not appear.
 export default function Popular() {
     const flickityOptions = {
         cellAlign: "left",
