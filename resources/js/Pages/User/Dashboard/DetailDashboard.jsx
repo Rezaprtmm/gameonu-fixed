@@ -3,6 +3,31 @@ import CardCourse from "@/Components/CardCourse";
 import Chart from "react-apexcharts";
 
 export default function DetailDashboard({ user }) {
+    let data;
+    if (user.course) {
+        data = user.course.split(",");
+    }
+
+    const [courses, setCourses] = useState([]);
+
+    useEffect(() => {
+        fetchCourses();
+    }, []);
+
+    const fetchCourses = async () => {
+        const response = await fetch("http://localhost:8000/api/courses");
+        const datas = await response.json();
+        const sort = [];
+        for (let i = 0; i < data.length; i++) {
+            for (let a = 0; a < datas.length; a++) {
+                if (data[i] === datas[a].cid) {
+                    sort[i] = datas[a];
+                    break;
+            }
+        }
+        setCourses(sort);
+    };
+
     const [options, setOptions] = useState({
         chart: {
             type: "bar",
@@ -39,40 +64,14 @@ export default function DetailDashboard({ user }) {
     const [series, setSeries] = useState([
         {
             name: "Progress",
-            data: [30, 40, 45, 50],
+            data: [1, 2, 3, 4],
         },
         {
             name: "Available",
-            data: [100, 100, 100, 100],
+            data: [5, 5, 5, 5, 5],
         },
     ]);
 
-    let data;
-    if (user.course) {
-        data = user.course.split(",");
-    }
-
-    const [courses, setCourses] = useState([]);
-
-    useEffect(() => {
-        fetchCourses();
-    }, []);
-
-    const fetchCourses = async () => {
-        const response = await fetch("http://localhost:8000/api/courses");
-        const datas = await response.json();
-        const sort = [];
-        for (let i = 0; i < data.length; i++) {
-            for (let a = 0; a < datas.length; a++) {
-                if (data[i] === datas[a].cid) {
-                    sort[i] = datas[a];
-                    break;
-                }
-            }
-        }
-        setCourses(sort);
-    };
-    console.log(courses);
     return (
         <div className="max-w-screen mt-[60px] border-secondary border-b-[3px]">
             <div className="container px-[100px] pb-[60px]">
