@@ -16,10 +16,14 @@ export default function Authenticated({ user }) {
         }
         setDropdownOpen(!dropdownOpen);
     };
+    let Authent = [];
+    Authent = List;
+
     if (!user) {
+        Authent[2].link = "login";
         return (
             <>
-                <nav className="stick max-w-screen border-b-[3px] border-secondary bg-white">
+                <nav className="stick max-w-screen border-b-[3px] border-secondary bg-white hidden lg:block">
                     <div className="container mx-auto flex h-[100px] items-center justify-between px-[110px]">
                         <div>
                             <Link href={route("prototype.homepage")}>
@@ -28,7 +32,7 @@ export default function Authenticated({ user }) {
                         </div>
                         <div className="items-center ">
                             <ul className="flex gap-[30px] font-text text-[16px] font-medium">
-                                {List.map((item, index) => (
+                                {Authent.map((item, index) => (
                                     <Menulist
                                         key={`${index}-${item.index}`}
                                         link={item.link}
@@ -67,7 +71,7 @@ export default function Authenticated({ user }) {
     } else {
         return (
             <>
-                <nav className="stick max-w-screen border-b-[3px] border-secondary bg-white">
+                <nav className="stick max-w-screen border-b-[3px] border-secondary bg-white hidden lg:block">
                     <div className="container mx-auto flex h-[100px] items-center justify-between px-[110px]">
                         <div>
                             <Link href={route("prototype.homepage")}>

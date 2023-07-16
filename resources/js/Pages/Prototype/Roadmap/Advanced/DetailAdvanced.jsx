@@ -15,7 +15,10 @@ export default function DetailAdvanced() {
                     description={
                         "Learn about multiplayer game development by studying network architecture, communication, synchronization, security, and performance optimization."
                     }
-                    link={"/"}
+                    link={route(
+                        "prototype.courseShow.show",
+                        "Multiplayer-Game-Development"
+                    )}
                 />
                 <CardLeft
                     number={2}
@@ -23,7 +26,10 @@ export default function DetailAdvanced() {
                     description={
                         "Explore the development of games using virtual reality (VR) technology, including creating interactive VR experiences, utilizing motion controllers, and integrating with VR systems."
                     }
-                    link={"/"}
+                    link={route(
+                        "prototype.courseShow.show",
+                        "Virtual-Reality-(VR)-Game-Development"
+                    )}
                     className=""
                 />
                 <CardRight
@@ -33,7 +39,10 @@ export default function DetailAdvanced() {
                         "Dive into the development of games using augmented reality (AR) technology, including using image recognition and object detection, marker-based tracking, and virtual object interactions with the real world."
                     }
                     className2="-mb-[92px]"
-                    link={"/"}
+                    link={route(
+                        "prototype.courseShow.show",
+                        "Augmented-Reality-(AR)-Game-Development"
+                    )}
                 />
                 <CardLeft
                     number={4}
@@ -41,7 +50,10 @@ export default function DetailAdvanced() {
                     description={
                         "Learn game development with custom game engines, including preparing and designing the engine architecture, implementing core features, graphics setup and input handling, as well as optimization and debugging."
                     }
-                    link={"/"}
+                    link={route(
+                        "prototype.courseShow.show",
+                        "Game-Development-with-Custom-Game-Engines"
+                    )}
                     className2="mb-[300px]"
                     className="-mb-[92px]"
                 />

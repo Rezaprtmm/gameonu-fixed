@@ -15,7 +15,10 @@ export default function DetailNewbie() {
                     description={
                         "Learn the basics of game development, including its history, essential elements, and fundamental concepts that will help you understand the industry as a whole."
                     }
-                    link={"/"}
+                    link={route(
+                        "prototype.courseShow.show",
+                        "Introduction-to-Game-Development"
+                    )}
                 />
                 <CardLeft
                     number={2}
@@ -23,7 +26,10 @@ export default function DetailNewbie() {
                     description={
                         "Learn the fundamentals of programming, including variables, data types, control structures, and the use of libraries and APIs to build simple yet interactive games."
                     }
-                    link={"/"}
+                    link={route(
+                        "prototype.courseShow.show",
+                        "Basic-Programming-for-Game-Development"
+                    )}
                     className="-mb-[70px]"
                 />
                 <CardRight
@@ -32,7 +38,10 @@ export default function DetailNewbie() {
                     description={
                         "Learn the basic principles of game design, player understanding, and how to create your first level using available level design tools."
                     }
-                    link={"/"}
+                    link={route(
+                        "prototype.courseShow.show",
+                        "Game-Design-and-Level-Design"
+                    )}
                 />
                 <CardLeft
                     number={4}
@@ -40,7 +49,10 @@ export default function DetailNewbie() {
                     description={
                         "Learn the basics of 2D graphics, using graphic tools, creating characters and objects in games, and animating to breathe life into your games."
                     }
-                    link={"/"}
+                    link={route(
+                        "prototype.courseShow.show",
+                        "Creating-Graphics-and-Animations-for-Games"
+                    )}
                     className2="mb-[300px]"
                 />
             </div>
