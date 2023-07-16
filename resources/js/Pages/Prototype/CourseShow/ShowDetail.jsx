@@ -175,10 +175,11 @@ export default function ShowDetail({ slug }) {
                             >
                                 {[1, 2, 3, 4, 5, 6].map((i) => (
                                     <CardReviews
-                                        name={"Jhon Doe"}
+                                        thumbnail={"/images/fatih.jpg"}
+                                        name={"Fatih"}
                                         job={"Student"}
                                         review={
-                                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                                            "Kelasnya bagus banget saya merekomendasikan kelas ini ke teman-teman saya"
                                         }
                                         key={i}
                                     />

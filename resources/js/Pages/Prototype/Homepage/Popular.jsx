@@ -25,20 +25,17 @@ export default function Popular() {
     const fetchCourses = async () => {
         try {
             const response = await fetch("http://localhost:8000/api/courses");
-            const data = await response.json();
-            let datas = [];
-            for (let i = 0; i < data.length; i++) {
-                if (data[i].member >= 10) {
-                    datas[i] = data[i];
-                }
+            if (response.ok) {
+                const data = await response.json();
+                setCourses(data);
+            } else {
+                throw new Error("Gagal mengambil data");
             }
-            setCourses(datas);
         } catch (error) {
             console.error(error);
         }
     };
 
-    console.log(courses);
     return (
         <>
             <Head>
@@ -75,15 +72,15 @@ export default function Popular() {
                             className="gap-[30px]"
                             options={flickityOptions}
                         >
-                            {courses.map((row, key) => (
+                            {courses.map((row) => (
                                 <CardCourse
+                                    key={row.id}
                                     name={row.title}
-                                    slug={"csharp"}
+                                    slug={row.title.replace(/\s/g, "-")}
                                     rating={row.rating}
                                     price={row.price}
                                     level={row.levels}
                                     thumbnail={row.image}
-                                    key={key}
                                     className="absolute w-[343px]"
                                 />
                             ))}

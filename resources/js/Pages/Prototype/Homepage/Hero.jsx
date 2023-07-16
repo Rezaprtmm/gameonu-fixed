@@ -28,7 +28,7 @@ export default function Hero() {
                                 className="rounded-full"
                             />
                             <Link
-                                href="#"
+                                href="https://youtu.be/Z9BCLqSyM3M"
                                 className="font-sans text-[14px] font-bold text-secondary"
                             >
                                 Watch Demo

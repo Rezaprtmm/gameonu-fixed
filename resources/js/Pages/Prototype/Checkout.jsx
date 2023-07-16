@@ -27,6 +27,7 @@ export default function Checkout({ auth }) {
             }
         }
     };
+
     useEffect(() => {
         fetchCourses();
     }, []);
@@ -39,6 +40,28 @@ export default function Checkout({ auth }) {
         tax = cut * 0.11;
         sum = cut + tax;
     }
+
+    const handlePayNow = async () => {
+        try {
+            const response = await fetch("http://localhost:8000/api/users", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    course: courses.cid,
+                }),
+            });
+
+            if (response.ok) {
+                console.log("Course data sent successfully");
+            } else {
+                throw new Error("Failed to send course data");
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     return (
         <div className="max-w-screen bg-checkout h-screen flex">
@@ -111,7 +134,10 @@ export default function Checkout({ auth }) {
                             </div>
                         </div>
                         <div className="mt-[24px]">
-                            <Link href={route("prototype.success")}>
+                            <Link
+                                href={route("prototype.success")}
+                                onClick={handlePayNow}
+                            >
                                 <PrimaryButton className="w-full">
                                     Pay Now
                                 </PrimaryButton>

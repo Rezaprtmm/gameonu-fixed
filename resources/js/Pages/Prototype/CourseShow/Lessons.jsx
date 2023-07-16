@@ -1,5 +1,11 @@
 import { Link } from "@inertiajs/react";
 export default function Lessons({ title, time }) {
+    const truncateText = (text, maxLength) => {
+        if (text.length <= maxLength) {
+            return text;
+        }
+        return text.slice(0, maxLength) + "...";
+    };
     return (
         <Link className="bg-[#E1D2F9] flex py-[17px] w-[505px] mb-[16px] justify-between gap-[8px] px-[20px]">
             <div className="flex gap-[8px]">
@@ -30,7 +36,7 @@ export default function Lessons({ title, time }) {
                     />
                 </svg>
                 <p className="font-text text-[16px] font-bold leading-normal text-secondary">
-                    {title}
+                    {truncateText(title, 40)}
                 </p>
             </div>
             <div>

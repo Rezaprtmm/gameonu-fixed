@@ -1,10 +1,10 @@
-export default function CardReviews({ name, job, review }) {
+export default function CardReviews({ name, job, review, thumbnail }) {
     return (
         <div className="w-[393px] border-secondary border-[1px] bg-white absolute mr-[31px]">
             <div className="px-[20px] pb-[20px]">
                 <div className="flex items-center gap-[16px] mt-[23px]">
                     <img
-                        src="/images/placeholder.webp"
+                        src={thumbnail}
                         alt="image"
                         className="w-[40px] h-[40px] rounded-full"
                     />

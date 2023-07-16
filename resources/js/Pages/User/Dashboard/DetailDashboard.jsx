@@ -72,6 +72,7 @@ export default function DetailDashboard({ user }) {
         }
         setCourses(sort);
     };
+    console.log(courses);
     return (
         <div className="max-w-screen mt-[60px] border-secondary border-b-[3px]">
             <div className="container px-[100px] pb-[60px]">
@@ -96,7 +97,7 @@ export default function DetailDashboard({ user }) {
                 </div>
                 <div className="flex flex-col mt-[24px] w-full">
                     <h1 className="font-sans text-[24px] font-bold leading-normal text-secondary">
-                        My Course
+                        Analytics
                     </h1>
                     <div className="w-full mt-[24px]" id="chart">
                         <Chart options={options} series={series} type="bar" />

@@ -13,6 +13,14 @@ export default function CardCourse({
     price = price.toString();
     price = price.slice(0, -3);
     price = parseInt(price);
+
+    const truncateText = (text, maxLength) => {
+        if (text.length <= maxLength) {
+            return text;
+        }
+        return text.slice(0, maxLength) + "...";
+    };
+
     return (
         <div
             className={`border-[#e1d2f9] border-[1px] group mr-[30px] flex items-center justify-center ${className}`}
@@ -22,8 +30,8 @@ export default function CardCourse({
                     <img src={thumbnail} alt="" className="w-full" />
                 </div>
                 <div className="flex flex-row items-center justify-between px-[16px] mt-[16px]">
-                    <h1 className="font-sans text-[20px] font-bold leading-normal text-secondary flex items-center">
-                        {name}
+                    <h1 className="font-sans text-[20px] font-bold leading-normal text-secondary flex items-center truncate ">
+                        {truncateText(name, 20)}
                     </h1>
                     <p className="font-text text-[#737373] text-[16px] font-normal leading-nornmal flex items-center gap-[4px]">
                         {rating} / 5{" "}
