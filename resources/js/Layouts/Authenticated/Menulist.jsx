@@ -13,7 +13,9 @@ export default function Menulist({
                 href={link ? route(link) : null}
                 method={method}
                 as="button"
-                className={`flex gap-[10px] ${isActive && "text-secondary"}`}
+                className={`flex gap-[10px] ${
+                    isActive ? "text-secondary" : ""
+                }`}
             >
                 {icon}
                 {text}

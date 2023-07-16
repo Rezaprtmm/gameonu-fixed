@@ -31,7 +31,7 @@ export default function CardCourse({
                 </div>
                 <div className="flex flex-row items-center justify-between px-[16px] mt-[16px]">
                     <h1 className="font-sans text-[20px] font-bold leading-normal text-secondary flex items-center truncate ">
-                        {truncateText(name, 20)}
+                        {truncateText(name, 18)}
                     </h1>
                     <p className="font-text text-[#737373] text-[16px] font-normal leading-nornmal flex items-center gap-[4px]">
                         {rating} / 5{" "}

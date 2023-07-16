@@ -10,12 +10,12 @@ export const List = [
         text: "Roadmap",
     },
     {
-        link: "prototype.courses",
+        link: "prototype.community",
         icon: null,
         text: "Community",
     },
     {
-        link: "prototype.courses",
+        link: "prototype.dashboard",
         icon: (
             <svg
                 width="20"
