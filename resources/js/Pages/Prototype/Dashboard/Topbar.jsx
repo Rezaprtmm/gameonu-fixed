@@ -34,14 +34,17 @@ export default function Topbar({ user }) {
                     <TopbarList
                         link={route("prototype.dashboard")}
                         title={"Dashboard"}
+                        isActive={route().current("prototype.dashboard")}
                     />
                     <TopbarList
                         link={route("prototype.community")}
                         title={"Community"}
+                        isActive={route().current("prototype.community")}
                     />
                     <TopbarList
                         link={route("prototype.profile")}
                         title={"Profile"}
+                        isActive={route().current("prototype.profile")}
                     />
                 </div>
             </div>
