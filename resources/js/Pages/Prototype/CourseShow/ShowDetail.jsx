@@ -17,13 +17,14 @@ export default function ShowDetail({ slug, user }) {
     let a = 0;
     title = title[3].replace(/-/g, " ");
     const save = [];
-
-    let userCourse = user.course;
-    let courseCheck;
-    if (user.course) {
-        courseCheck = userCourse.split(",");
+    let userCourse, courseCheck;
+    if (user) {
+        userCourse = user.course;
+        if (user.course) {
+            courseCheck = userCourse.split(",");
+        }
     }
-    console.log(courseCheck);
+
     let btnText = "Join Course";
     let btnAct = true;
 
@@ -63,17 +64,21 @@ export default function ShowDetail({ slug, user }) {
         draggable: ">1",
     };
 
-    if (courses.length != 0 && user.course) {
-        for (let i = 0; i < courseCheck.length; i++) {
-            if (courses.cid === courseCheck[i]) {
-                btnText = "You already bought this";
-                btnAct = true;
-                break;
-            }
+    if (user) {
+        if (courses.length != 0 && user.course) {
+            for (let i = 0; i < courseCheck.length; i++) {
+                if (courses.cid === courseCheck[i]) {
+                    btnText = "You already bought this";
+                    btnAct = true;
+                    break;
+                }
 
-            if (i === courseCheck.length - 1) {
-                btnAct = false;
+                if (i === courseCheck.length - 1) {
+                    btnAct = false;
+                }
             }
+        } else {
+            btnAct = false;
         }
     } else {
         btnAct = false;

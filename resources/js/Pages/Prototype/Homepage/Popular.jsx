@@ -27,7 +27,15 @@ export default function Popular() {
             const response = await fetch("http://localhost:8000/api/courses");
             if (response.ok) {
                 const data = await response.json();
-                setCourses(data);
+                const show = [];
+                let i = 0;
+                for (let a = 0; a < data.length; a++) {
+                    if (data[a].member >= 10) {
+                        show[i] = data[a];
+                        ++i;
+                    }
+                }
+                setCourses(show);
             } else {
                 throw new Error("Gagal mengambil data");
             }

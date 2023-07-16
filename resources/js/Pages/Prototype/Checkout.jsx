@@ -13,6 +13,15 @@ export default function Checkout({ auth }) {
     const month = String(date.getMonth() + 1).padStart(2, "0");
     const year = date.getFullYear();
     const cod = `${day}-${month}-${year}`;
+    let btnAct = true;
+    let btnText = "Pay Now";
+    let userCourse, courseCheck;
+    if (user) {
+        userCourse = user.course;
+        if (user.course) {
+            courseCheck = userCourse.split(",");
+        }
+    }
 
     const hrs = String(date.getHours()).padStart(2, "0");
     const mnt = String(date.getMinutes()).padStart(2, "0");
@@ -43,6 +52,21 @@ export default function Checkout({ auth }) {
         tax = cut * 0.11;
         sum = cut + tax;
         courseAdd = user.course + "," + courses.cid;
+        btnAct = false;
+    }
+
+    if (courses.length != 0 && user.course) {
+        for (let i = 0; i < courseCheck.length; i++) {
+            if (courses.cid === courseCheck[i]) {
+                btnText = "You already bought this";
+                btnAct = true;
+                break;
+            }
+
+            if (i === courseCheck.length - 1) {
+                btnAct = false;
+            }
+        }
     }
 
     const handlePayNow = async (e) => {
@@ -71,25 +95,6 @@ export default function Checkout({ auth }) {
             .catch((error) => {
                 console.error("Terjadi kesalahan:", error);
             });
-        // try {
-        //     const response = await fetch("http://localhost:8000/api/users", {
-        //         method: "PUT",
-        //         headers: {
-        //             "Content-Type": "application/json",
-        //         },
-        //         body: JSON.stringify({
-        //             course: courseAdd,
-        //         }),
-        //     });
-
-        //     if (response.ok) {
-        //         console.log("Course data sent successfully");
-        //     } else {
-        //         throw new Error("Failed to send course data");
-        //     }
-        // } catch (error) {
-        //     console.error(error);
-        // }
     };
 
     return (
@@ -164,8 +169,11 @@ export default function Checkout({ auth }) {
                         </div>
                         <div className="mt-[24px]">
                             <Link onClick={handlePayNow}>
-                                <PrimaryButton className="w-full">
-                                    Pay Now
+                                <PrimaryButton
+                                    className="w-full"
+                                    disabled={btnAct}
+                                >
+                                    {btnText}
                                 </PrimaryButton>
                             </Link>
                         </div>
