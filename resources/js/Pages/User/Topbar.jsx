@@ -1,5 +1,6 @@
 import PrimaryButton from "@/Components/PrimaryButton";
 import { Link } from "@inertiajs/react";
+import TopbarList from "./TopbarList";
 
 export default function Topbar({ user }) {
     return (
@@ -30,24 +31,18 @@ export default function Topbar({ user }) {
                     </div>
                 </div>
                 <div className="w-full flex flex-row gap-[20px]">
-                    <Link
-                        className="font-sans text-[16px] font-bold leading-normal text-secondary w-[160px] mt-[24px] border-secondary border-[2px] h-[40px] flex items-center justify-center"
-                        href={route("prototype.dashboard")}
-                    >
-                        Dashboard
-                    </Link>
-                    <Link
-                        href={route("prototype.community")}
-                        className="font-sans text-[16px] font-bold leading-normal text-secondary w-[160px] mt-[24px] border-secondary border-[2px] h-[40px] flex items-center justify-center"
-                    >
-                        Community
-                    </Link>
-                    <Link
-                        href={route("prototype.profile")}
-                        className="font-sans text-[16px] font-bold leading-normal text-secondary w-[160px] mt-[24px] border-secondary border-[2px] h-[40px] flex items-center justify-center"
-                    >
-                        Profile
-                    </Link>
+                    <TopbarList
+                        link={route("prototype.dashboard")}
+                        title={"Dashboard"}
+                    />
+                    <TopbarList
+                        link={route("prototype.community")}
+                        title={"Community"}
+                    />
+                    <TopbarList
+                        link={route("prototype.profile")}
+                        title={"Profile"}
+                    />
                 </div>
             </div>
         </div>

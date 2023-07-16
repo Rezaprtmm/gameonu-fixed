@@ -15,7 +15,7 @@ export const List = [
         text: "Community",
     },
     {
-        link: "prototype.dashboard",
+        link: "dashboard",
         icon: (
             <svg
                 width="20"

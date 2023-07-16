@@ -35,7 +35,7 @@ export default function Authenticated({ user }) {
                                         icon={item.icon}
                                         text={item.text}
                                         className="flex"
-                                        isAactive={
+                                        isActive={
                                             item.link &&
                                             route().current(item.link)
                                         }
